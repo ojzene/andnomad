@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a routerLink="" routerLinkActive="active">
+          ANDNOMAD BOOKS
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="text-center"> Feel free to search for a book!</h3>
+      <h4 class="text-center stable">you know the ISBN right?</h4>
+      <br><br>
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+            <div class="form-group">
+              <label for="isbn">Enter ISBN Number</label>
+              <input type="number" maxlength="13" class="form-control" id="isbn" placeholder="ISBN Here..." required [(ngModel)]="isbn" name="isbn">
+            </div>
+            <div class="form-group">
+              <button (click)="SearchBtn()" type="submit" class="btn btn-primary" [disabled]="!searchForm.form.valid">Search Book</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <br><br><br><br>
+      <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+      <br>
+      <div *ngIf="!success && message" class="alert alert-danger" role="alert"> {{ message }}</div>
+      <div class="card cardwidth" *ngIf="result && success">
+        <img class="card-img-top" height="250px" src="{{ result.CoverThumb ? result.CoverThumb : 'assets/images.jpg' }}" alt="Card image cap">
+        <div class="card-header">
+          {{ result.Title }}
+        </div>
+        <div class="card-body">
+          <p class="card-text"> Author(s)</p>
+          <ul class="inlineme card-title" *ngFor="let author of result.Authors">
+            <li> {{ author.Name }} </li>
+          </ul>
+          <p class="card-text"> {{ result.Description | slice:0:10 }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
