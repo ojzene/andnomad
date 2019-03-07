@@ -1,27 +1,35 @@
 # Andnomad
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+# Prerequisite Tools
+ - [Git](https://git-scm.com/downloads)
+ - [Node](https://nodejs.org/en/download/)
+ - [Angular CLI](https://cli.angular.io/)
 
-## Development server
+# Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Verify if you have Node installed on your system, go to your command line and run `node -v`, 
+if not, download [Node](https://nodejs.org/en/download/) 
 
-## Code scaffolding
+Next Step is to install [Angular CLI](https://cli.angular.io/), which helps to create Angular projects and make development easier 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In your command line, type: `npm install -g @angular/cli`  
+
+After Installation, type: `ng -v` to check the version
+
+# Get Application Ready
+
+In your command line, navigate to where you want the application seated,
+
+Simply git clone this app to your directory, type: `git clone https://github.com/ojzene/andnomad.git` 
+
+Download necessary dependencies, type: `npm install`
+
+## Run Server
+
+Run `ng serve --open` for a dev server, it opens up in your browser http://localhost:4200/.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build --prod` to build the project for production. The build artifacts will be stored in the dist/ directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## This app can be tested on https://ojzene.github.io/andnomad/
