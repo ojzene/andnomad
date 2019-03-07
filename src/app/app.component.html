@@ -34,18 +34,20 @@
       <br><br><br><br>
       <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
       <br>
-      <div *ngIf="!success && message" class="alert alert-danger" role="alert"> {{ message }}</div>
+      <div *ngIf="!success && message" class="alert alert-danger text-center" role="alert"> {{ message }}</div>
       <div class="card cardwidth" *ngIf="result && success">
         <img class="card-img-top" height="250px" src="{{ result.CoverThumb ? result.CoverThumb : 'assets/images.jpg' }}" alt="Card image cap">
         <div class="card-header">
-          {{ result.Title }}
+          <strong> {{ result.Title }} </strong>
         </div>
         <div class="card-body">
           <p class="card-text"> Author(s)</p>
           <ul class="inlineme card-title" *ngFor="let author of result.Authors">
             <li> {{ author.Name }} </li>
           </ul>
-          <p class="card-text"> {{ result.Description | slice:0:10 }} </p>
+          <p class="card-text">
+            {{ (result.Description.length>10)? (result.Description | slice:0:10)+'..':(result.Description) }}
+          </p>
         </div>
       </div>
     </div>
